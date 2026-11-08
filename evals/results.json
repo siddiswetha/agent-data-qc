@@ -1,0 +1,22 @@
+{
+  "held_out_size": 30,
+  "true_positives": 13,
+  "false_positives": 0,
+  "false_negatives": 0,
+  "true_negatives": 17,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "gold_defect_rate": 0.433,
+  "predicted_defect_rate": 0.433,
+  "rubric_agreement_mean": 0.993,
+  "rubric_average_total": 9.37,
+  "sampling_fraction": 0.5,
+  "sampling_coverage": 0.5,
+  "sampled_count": 15,
+  "per_vendor_sampled": {
+    "Vendor-A": 5,
+    "Vendor-B": 4,
+    "Vendor-C": 6
+  }
+}
