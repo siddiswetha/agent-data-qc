@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: intake
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: intake
+  template:
+    metadata:
+      labels:
+        app: intake
+    spec:
+      containers:
+        - name: intake
+          image: agent-data-qc-intake:latest
+          ports:
+            - containerPort: 8101
+          env:
+            - name: PORT
+              value: "8101"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: intake
+spec:
+  selector:
+    app: intake
+  ports:
+    - port: 8101
+      targetPort: 8101

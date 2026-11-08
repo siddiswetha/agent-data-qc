@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auditor
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auditor
+  template:
+    metadata:
+      labels:
+        app: auditor
+    spec:
+      containers:
+        - name: auditor
+          image: agent-data-qc-auditor:latest
+          ports:
+            - containerPort: 8103
+          env:
+            - name: PORT
+              value: "8103"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: auditor
+spec:
+  selector:
+    app: auditor
+  ports:
+    - port: 8103
+      targetPort: 8103
